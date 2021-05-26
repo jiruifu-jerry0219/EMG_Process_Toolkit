@@ -24,9 +24,16 @@ import math
 #         b, a = signal.butter(N, wn, btype = 'high', analog = True)
 #     return N, b, a, wn
 
-def butter_highpass_filter(data, fs, fc, order = 5):
+def butter_highpass_filter(fs, fc, order = 5):
+    """
+    Function explanation:
+    fs: sampling rate
+    fc: cutoff frequency
+    order: Number of orders
+    Return: denominator and numerator of the filter's transfer function
+    """
     nyq = 0.5 * fs
     normal_fc = fc / nyq
     b, a = signal.butter(order, normal_fc, btype = 'high', analog = False)
-    y = signal.filtfilt(b, a, data)
-    return y
+    # y = signal.filtfilt(b, a, data)
+    return b, a
