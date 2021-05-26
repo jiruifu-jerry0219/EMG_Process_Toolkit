@@ -7,8 +7,8 @@ import math
 
 def main(data = None, fs = None, fc = None, order = None):
     from scipy.signal import freqz
-    fs = 5000
-    fc = 1000
+    fs = 1000
+    fc = 10
 
     # Plot the frequency response for a few different orders.
     plt.figure(1)

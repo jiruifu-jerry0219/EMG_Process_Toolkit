@@ -35,5 +35,19 @@ def butter_highpass_filter(fs, fc, order = 5):
     nyq = 0.5 * fs
     normal_fc = fc / nyq
     b, a = signal.butter(order, normal_fc, btype = 'high', analog = False)
-    # y = signal.filtfilt(b, a, data)
+    return b, a
+
+def butter_bandpass_filter(fs, lowcut, highcut, order = 5):
+    """
+    Function explanation:
+    fs: sampling rate
+    lowcut: lowcut Frequency
+    highcut:highcut Frequency
+    order: Number of orders
+    Return: denominator and numerator of the filter's transfer function
+    """
+    nyq = 0.5 * fs
+    low = lowcut / nyq
+    high = highcut / nyq
+    b, a = butter(order, [low, high], btype = 'band', analog = False)
     return b, a
