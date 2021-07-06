@@ -1,5 +1,4 @@
 
-
 import peakutils  # peak detection
 import numpy as np  # to handle datas
 import math  # to handle mathematical stuff (example power of 2)
@@ -510,4 +509,3 @@ def getHIST(rawEMGSignal, nseg=9, threshold=50):
         HIST[seg + 1]["ZC"] = getZC(thisSegment, threshold)
         HIST[seg + 1]["WAMP"] = getWAMP(thisSegment, threshold)
     return (HIST)
-
